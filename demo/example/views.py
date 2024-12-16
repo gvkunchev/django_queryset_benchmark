@@ -48,8 +48,8 @@ class IndexView(View):
         result = []
         for product in supplier.product_set.values():
             product = Product.objects.get(pk=product['id'])
-            if product.quantity >= 20:
-                continue
+            if product.quantity < 20:
+                result.append(product)
         return result
 
     @staticmethod
