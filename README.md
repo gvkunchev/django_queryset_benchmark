@@ -22,7 +22,7 @@ python manage.py migrate
 ```
 * Populate with fake data (takes a while)
 ```
-python manage.py seed example --number=1000
+python manage.py seeder
 ```
 * Run the server
 ```

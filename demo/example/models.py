@@ -7,5 +7,5 @@ class Supplier(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
-    quantity = models.IntegerField()
+    quantity = models.IntegerField(range(0, 100))
     supplier = models.ForeignKey(Supplier, on_delete=models.DO_NOTHING)
