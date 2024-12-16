@@ -31,7 +31,7 @@ class IndexView(View):
 
     @staticmethod
     def method1(supplier_name):
-        """Naive approach."""
+        """Very naive approach."""
         products = Product.objects.all()
         result = []
         for product in products:
@@ -44,6 +44,17 @@ class IndexView(View):
     @staticmethod
     def method2(supplier_name):
         """Naive approach."""
+        supplier = Supplier.objects.get(name=supplier_name)
+        result = []
+        for product in supplier.product_set.values():
+            product = Product.objects.get(pk=product['id'])
+            if product.quantity >= 20:
+                continue
+        return result
+
+    @staticmethod
+    def method3(supplier_name):
+        """Fast approach."""
         return Product.objects.filter(supplier__name=supplier_name, quantity__lt=20)
 
     def __iter__(self):
