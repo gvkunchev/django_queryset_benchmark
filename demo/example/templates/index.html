@@ -1,0 +1,11 @@
+Total number of products: {{ products_count }}.<br/>
+Total number of matches: {{ match_count }}.<br/>
+<ul>
+    {% for method in methods %}
+        <li>
+            Method {{ forloop.counter }} ({{ method.timer }} seconds)
+            <br/>
+            <pre>{{ method.definition }}</pre>
+        </li>
+    {% endfor %}
+</ul>
